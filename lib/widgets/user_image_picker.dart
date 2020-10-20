@@ -17,7 +17,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
   Future<void> _pickImage() async {
     final picker = ImagePicker();
     final pickedImage = await picker.getImage(
-      source: ImageSource.camera,
+      source: ImageSource.gallery,
       imageQuality: 50,
       maxWidth: 150,
     );
@@ -45,7 +45,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
             color: Theme.of(context).primaryColor,
           ),
           label: Text(
-            'Adicionar Imagem',
+            'Selecionar imagem',
             style: TextStyle(color: Theme.of(context).primaryColor),
           ),
           onPressed: _pickImage,
