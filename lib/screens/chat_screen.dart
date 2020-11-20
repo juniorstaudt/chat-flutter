@@ -28,11 +28,25 @@ class ChatScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+                DropdownMenuItem(
+                  value: 'maps',
+                  child: Container(
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.exit_to_app),
+                        SizedBox(width: 8),
+                        Text('Abrir mapa'),
+                      ],
+                    ),
+                  ),
                 )
               ],
               onChanged: (item) {
                 if (item == 'logout') {
                   FirebaseAuth.instance.signOut();
+                } else {
+                  Navigator.pushNamed(context, '/maps');
                 }
               },
             ),

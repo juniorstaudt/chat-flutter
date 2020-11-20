@@ -1,5 +1,6 @@
 import 'package:chat_fiap_19mob/screens/auth_screen.dart';
 import 'package:chat_fiap_19mob/screens/chat_screen.dart';
+import 'package:chat_fiap_19mob/screens/maps_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,10 @@ class MyApp extends StatelessWidget {
       builder: (ctx, appSnapshot) {
         return MaterialApp(
           title: 'Flutter Chat',
+          initialRoute: '/',
+          routes: <String, WidgetBuilder>{
+            '/maps': (BuildContext context) => new MapScreen(),
+          },
           theme: ThemeData(
             primarySwatch: Colors.pink,
             backgroundColor: Colors.pink,
