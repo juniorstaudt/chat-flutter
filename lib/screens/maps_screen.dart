@@ -1,3 +1,4 @@
+import 'package:chat_fiap_19mob/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -9,7 +10,7 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  final LatLng _center = const LatLng(-23.510030, -46.652240);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -21,7 +22,15 @@ class _MapScreenState extends State<MapScreen> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Consulta de mapa'),
-          backgroundColor: Colors.green[700],
+          leading: new IconButton(
+              icon: new Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              }),
+          backgroundColor: Colors.pink[700],
         ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,
