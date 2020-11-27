@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:chat_fiap_19mob/models/place.dart';
+import 'package:chat_fiap_19mob/utils/db_util.dart';
 import 'package:flutter/material.dart';
 
 class MyPlaces with ChangeNotifier {
@@ -27,6 +28,13 @@ class MyPlaces with ChangeNotifier {
       location: null,
     );
     _items.add(newPlace);
+
+    DbUtil.insert('places', {
+      'id': newPlace.id,
+      'title': newPlace.title,
+      'image': newPlace.image.path
+    });
+
     notifyListeners();
   }
 }
