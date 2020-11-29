@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:chat_fiap_19mob/providers/my_places.dart';
 import 'package:chat_fiap_19mob/widgets/image_input.dart';
+import 'package:chat_fiap_19mob/widgets/location_input.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -52,6 +53,8 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
                       ),
                       SizedBox(height: 10),
                       ImageInput(this._selectImage),
+                      SizedBox(height: 10),
+                      LocationInput(),
                     ],
                   ),
                 ),

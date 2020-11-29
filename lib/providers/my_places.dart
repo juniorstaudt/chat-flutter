@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:chat_fiap_19mob/models/place.dart';
 import 'package:chat_fiap_19mob/utils/db_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MyPlaces with ChangeNotifier {
   List<Place> _items = [];
@@ -33,7 +34,11 @@ class MyPlaces with ChangeNotifier {
     return _items[index];
   }
 
-  void addPlace(String title, File image) {
+  void addPlace(
+    String title,
+    File image,
+    //LatLng position,
+  ) {
     final newPlace = Place(
       id: Random().nextDouble().toString(),
       title: title,

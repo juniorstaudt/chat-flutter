@@ -54,7 +54,7 @@ class _ImageInputState extends State<ImageInput> {
                   width: double.infinity,
                   fit: BoxFit.cover,
                 )
-              : Text('Sem imagem'),
+              : Text('Preview da imagem'),
         ),
         SizedBox(width: 10),
         Expanded(
