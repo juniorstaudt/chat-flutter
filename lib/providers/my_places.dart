@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:math';
-
 import 'package:chat_fiap_19mob/models/place.dart';
 import 'package:chat_fiap_19mob/utils/db_util.dart';
 import 'package:chat_fiap_19mob/utils/location_util.dart';

@@ -2,6 +2,7 @@ import 'package:chat_fiap_19mob/providers/my_places.dart';
 import 'package:chat_fiap_19mob/screens/auth_screen.dart';
 import 'package:chat_fiap_19mob/screens/chat_screen.dart';
 import 'package:chat_fiap_19mob/screens/maps_screen.dart';
+import 'package:chat_fiap_19mob/screens/place_detail_screen.dart';
 import 'package:chat_fiap_19mob/screens/place_form_screen.dart';
 import 'package:chat_fiap_19mob/screens/places_list_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
             routes: <String, WidgetBuilder>{
               '/maps': (BuildContext context) => new MapScreen(),
               '/places-list': (BuildContext context) => new PlacesListScreen(),
-              '/place-form': (BuildContext context) => new PlaceFormScreen()
+              '/place-form': (BuildContext context) => new PlaceFormScreen(),
+              '/place-detail': (BuildContext context) => new PlaceDetailScreen()
             },
             theme: ThemeData(
               primarySwatch: Colors.pink,
