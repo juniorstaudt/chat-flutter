@@ -4,6 +4,7 @@ import 'package:chat_fiap_19mob/providers/my_places.dart';
 import 'package:chat_fiap_19mob/widgets/image_input.dart';
 import 'package:chat_fiap_19mob/widgets/location_input.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 class PlaceFormScreen extends StatefulWidget {
@@ -14,18 +15,34 @@ class PlaceFormScreen extends StatefulWidget {
 class _PlaceFormScreenState extends State<PlaceFormScreen> {
   final _titleController = TextEditingController();
   File _pickedImage;
+  LatLng _pickedLocation;
 
   void _selectImage(File pickedImage) {
-    _pickedImage = pickedImage;
+    setState(() {
+      _pickedImage = pickedImage;
+    });
+  }
+
+  void __selectedLocation(LatLng location) {
+    setState(() {
+      _pickedLocation = location;
+    });
+  }
+
+  bool _isValid() {
+    return !_titleController.text.isEmpty &&
+        _pickedImage != null &&
+        _pickedLocation != null;
   }
 
   void _submitForm() {
-    if (_titleController.text.isEmpty || _pickedImage == null) {
-      return;
-    }
+    if (!_isValid()) return;
 
-    Provider.of<MyPlaces>(context, listen: false)
-        .addPlace(_titleController.text, _pickedImage);
+    Provider.of<MyPlaces>(context, listen: false).addPlace(
+      _titleController.text,
+      _pickedImage,
+      _pickedLocation,
+    );
 
     Navigator.of(context).pop();
   }
@@ -54,7 +71,7 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
                       SizedBox(height: 10),
                       ImageInput(this._selectImage),
                       SizedBox(height: 10),
-                      LocationInput(),
+                      LocationInput(this.__selectedLocation),
                     ],
                   ),
                 ),
@@ -66,7 +83,7 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
               color: Theme.of(context).primaryColor,
               elevation: 0,
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              onPressed: _submitForm,
+              onPressed: _isValid() ? _submitForm : null,
             )
           ],
         ));

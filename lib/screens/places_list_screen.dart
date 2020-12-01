@@ -18,26 +18,28 @@ class PlacesListScreen extends StatelessWidget {
         ),
         body: FutureBuilder(
           future: Provider.of<MyPlaces>(context, listen: false).loadPlaces(),
-          builder: (ctx, snapshop) =>
-              snapshop.connectionState == ConnectionState.waiting
-                  ? Center(child: CircularProgressIndicator())
-                  : Consumer<MyPlaces>(
-                      child: Center(
-                        child: Text('Nenhum local foi adicionado.'),
-                      ),
-                      builder: (ctx, myPlaces, chld) => myPlaces.itemsCount == 0
-                          ? chld
-                          : ListView.builder(
-                              itemCount: myPlaces.itemsCount,
-                              itemBuilder: (ctx, i) => ListTile(
-                                leading: CircleAvatar(
-                                  backgroundImage:
-                                      FileImage(myPlaces.itemByIndex(i).image),
-                                ),
-                                title: Text(myPlaces.itemByIndex(i).title),
-                                onTap: () {},
-                              ),
-                            )),
+          builder: (ctx, snapshop) => snapshop.connectionState ==
+                  ConnectionState.waiting
+              ? Center(child: CircularProgressIndicator())
+              : Consumer<MyPlaces>(
+                  child: Center(
+                    child: Text('Nenhum local foi adicionado.'),
+                  ),
+                  builder: (ctx, myPlaces, chld) => myPlaces.itemsCount == 0
+                      ? chld
+                      : ListView.builder(
+                          itemCount: myPlaces.itemsCount,
+                          itemBuilder: (ctx, i) => ListTile(
+                            leading: CircleAvatar(
+                              backgroundImage:
+                                  FileImage(myPlaces.itemByIndex(i).image),
+                            ),
+                            title: Text(myPlaces.itemByIndex(i).title),
+                            subtitle:
+                                Text(myPlaces.itemByIndex(i).location.address),
+                            onTap: () {},
+                          ),
+                        )),
         ));
   }
 }
