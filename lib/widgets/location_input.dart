@@ -63,7 +63,7 @@ class _LocationInputState extends State<LocationInput> {
               border: Border.all(width: 1, color: Colors.grey),
             ),
             child: _previewImageUrl == null
-                ? Text('Não há localização.')
+                ? Text('Visualização do local no mapa.')
                 : Image.network(
                     _previewImageUrl,
                     fit: BoxFit.cover,
@@ -81,7 +81,7 @@ class _LocationInputState extends State<LocationInput> {
             FlatButton.icon(
               onPressed: _selectOnMap,
               icon: Icon(Icons.map),
-              label: Text('Selecione no mapa'),
+              label: Text('Selecionar no mapa'),
               textColor: Theme.of(context).primaryColor,
             )
           ],

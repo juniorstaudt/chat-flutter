@@ -7,7 +7,7 @@ class PlacesListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Meus locais'),
+          title: Text('Meus lugares'),
           actions: <Widget>[
             IconButton(
                 icon: Icon(Icons.add),
@@ -23,7 +23,7 @@ class PlacesListScreen extends StatelessWidget {
               ? Center(child: CircularProgressIndicator())
               : Consumer<MyPlaces>(
                   child: Center(
-                    child: Text('Nenhum local foi adicionado.'),
+                    child: Text('Nenhum local foi adicionado :('),
                   ),
                   builder: (ctx, myPlaces, chld) => myPlaces.itemsCount == 0
                       ? chld

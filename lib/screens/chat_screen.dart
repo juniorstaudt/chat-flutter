@@ -24,7 +24,19 @@ class ChatScreen extends StatelessWidget {
                       children: <Widget>[
                         Icon(Icons.map),
                         SizedBox(width: 8),
-                        Text('Meus locais'),
+                        Text('Meus lugares'),
+                      ],
+                    ),
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: 'sum',
+                  child: Container(
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.calculate),
+                        SizedBox(width: 8),
+                        Text('Somador'),
                       ],
                     ),
                   ),
@@ -48,6 +60,10 @@ class ChatScreen extends StatelessWidget {
                 }
                 if (item == 'locations') {
                   Navigator.pushNamed(context, '/places-list');
+                } else {
+                  if (item == 'sum') {
+                    Navigator.pushNamed(context, '/sum-screen');
+                  }
                 }
               },
             ),

@@ -30,7 +30,7 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
   }
 
   bool _isValid() {
-    return !_titleController.text.isEmpty &&
+    return _titleController.text.isNotEmpty &&
         _pickedImage != null &&
         _pickedLocation != null;
   }
@@ -51,21 +51,21 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Adicionar um local'),
+          title: Text('Meu lugar'),
         ),
         body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(2),
                   child: Column(
                     children: <Widget>[
                       TextField(
                         controller: _titleController,
                         decoration: InputDecoration(
-                          labelText: 'Título',
+                          labelText: 'Informe o nome do local',
                         ),
                         onChanged: (text) {
                           setState(() {});
@@ -82,7 +82,7 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
             ),
             RaisedButton.icon(
               icon: Icon(Icons.add),
-              label: Text('Adicionar imagem'),
+              label: Text('Adicionar local'),
               color: Theme.of(context).primaryColor,
               elevation: 0,
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
