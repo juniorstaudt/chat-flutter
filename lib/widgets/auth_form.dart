@@ -62,7 +62,7 @@ class _AuthFormState extends State<AuthForm> {
                       onChanged: (value) => _authData.name = value,
                       validator: (value) {
                         if (value == null || value.trim().length < 4) {
-                          return 'Senha deve ter no mínimo 4 caracteres.';
+                          return 'Nome deve ter no mínimo 4 caracteres.';
                         }
                         return null;
                       },
@@ -89,7 +89,7 @@ class _AuthFormState extends State<AuthForm> {
                     onChanged: (value) => _authData.password = value,
                     validator: (value) {
                       if (value == null || value.trim().length < 7) {
-                        return 'Nome deve ter no mínimo 7 caracteres.';
+                        return 'Senha deve ter no mínimo 7 caracteres.';
                       }
                       return null;
                     },
